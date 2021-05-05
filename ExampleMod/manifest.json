@@ -1,0 +1,15 @@
+{
+  "name": "Hookgen Template Mod",
+  "authors": [
+    "M'aiq"
+  ],
+  "guid": "maiq.template_mod.hookgen",
+  "version": "1.0.0",
+  "require": "0.3.2",
+  "dependencies": {},
+  "assets": {
+    "setup": {
+      "ExampleMod.dll": "deli:assembly"
+    }
+  }
+}
