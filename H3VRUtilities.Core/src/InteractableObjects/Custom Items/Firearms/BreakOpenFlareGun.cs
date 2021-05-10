@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 // ReSharper disable CheckNamespace
-namespace H3VRUtilities.InteractableObjects.CustomItems.Firearms
+namespace H3VRUtilities.Firearms
 {
 	public class BreakOpenFlareGun : FVRFireArm
 	{
