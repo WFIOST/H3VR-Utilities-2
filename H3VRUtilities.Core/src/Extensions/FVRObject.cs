@@ -251,7 +251,7 @@ namespace H3VRUtilities.Extensions
 
 		    //Now go through all items that do have ammo containers, and try to get an ammo container for one of them
 		    heldItems.Shuffle();
-		    return (from item in heldItems select GetCompatibleAmmoContainers(item, minCapacity, maxCapacity, false, blacklistedContainers) into containers where containers.Count > 0 select containers.GetRandom()).FirstOrDefault();
+		    return (from item in heldItems select GetCompatibleAmmoContainers(item, minCapacity, maxCapacity, false, blacklistedContainers) into containers where containers.ToList().Count > 0 select containers.ToList().GetRandom()).FirstOrDefault();
 	    }
 	    
     }
