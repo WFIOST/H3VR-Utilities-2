@@ -7,23 +7,21 @@ using FistVR;
 
 namespace H3VRUtils
 {
-	public enum actionType
-	{
-		attach,
-		detach
-	}
-	public enum CapType
-	{
-		AddTo,
-		SetTo
-	}
-	
 	class AttachmentModifyFirearm : MonoBehaviour
 	{
 		private FVRFireArmAttachment attachment;
 		private FVRFireArm weapon;
 
-
+		public enum actionType
+		{
+			attach,
+			detach
+		}
+		public enum CapType
+		{
+			AddTo,
+			SetTo
+		}
 
 		[Header("Recoil Modifier")]
 		public bool ChangesRecoil;
@@ -51,7 +49,7 @@ namespace H3VRUtils
 		public float BoltSpringStiffness;
 		private float prevBoltSpringStiffness;
 
-		[Header("Spread Modifier")]
+//		[Header("Spread Modifier")]
 		[HideInInspector]
 		public bool ChangesSpread;
 		[HideInInspector]

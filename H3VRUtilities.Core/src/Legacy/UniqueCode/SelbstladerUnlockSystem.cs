@@ -38,7 +38,7 @@ namespace H3VRUtils.UniqueCode
 
 		public locktype locker;
 
-		public override void Awake()
+		protected override void Awake()
 		{
 			base.Awake();
 			IsSimpleInteract = true;
@@ -62,7 +62,7 @@ namespace H3VRUtils.UniqueCode
 			}
 		}
 
-		public override void FVRUpdate()
+		protected override void FVRUpdate()
 		{
 			base.FVRUpdate();
 			if (locker == locktype.BoltLocking)
