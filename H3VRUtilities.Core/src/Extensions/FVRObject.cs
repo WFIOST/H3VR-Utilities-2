@@ -15,7 +15,7 @@ namespace H3VRUtilities.Extensions
 		/// <param name="smallestIfEmpty">If true, when the returned list would normally be empty, will instead return the smallest capacity magazine compatible with the firearm</param>
 		/// <param name="blacklistedContainers">A list of ItemIDs for magazines, clips, or speedloaders that will be excluded</param>
 		/// <returns> A list of ammo container FVRObjects that are compatible with the given firearm </returns>
-		public static List<FVRObject> GetCompatibleAmmoContainers(this FVRObject firearm, int minCapacity = 0, int maxCapacity = 9999, bool smallestIfEmpty = true, IEnumerable<string>? blacklistedContainers = null)
+		public static IEnumerable<FVRObject> GetCompatibleAmmoContainers(this FVRObject firearm, int minCapacity = 0, int maxCapacity = 9999, bool smallestIfEmpty = true, IEnumerable<string>? blacklistedContainers = null)
 		{
 			//Refresh the FVRObject to have data directly from object dictionary
 			firearm = IM.OD[firearm.ItemID];
