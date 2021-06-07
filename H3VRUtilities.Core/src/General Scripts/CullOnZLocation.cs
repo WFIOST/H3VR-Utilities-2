@@ -9,21 +9,10 @@ namespace H3VRUtilities
 
 	public class CullOnZLocation : MonoBehaviour
 	{
-		public enum CutOffType
-		{
-			Above,
-			Below
-		}
-		public CutOffType cutoff;
+		public Common.CutoffType cutoff;
 		public double loc;
 		public GameObject objTarget;
-		public enum DirectionType
-		{
-			X = 0,
-			Y = 1,
-			Z = 2
-		}
-		public DirectionType dir;
+		public Common.Direction dir;
 		private MeshRenderer objMeshRenderer;
 
 
@@ -34,14 +23,12 @@ namespace H3VRUtilities
 
 		void Update()
 		{
-			switch (cutoff) {
-				case CutOffType.Below:
-					objMeshRenderer.enabled = objTarget.transform.localPosition[(int)dir] > loc;
-					break;
-				case CutOffType.Above:
-					objMeshRenderer.enabled = objTarget.transform.localPosition[(int)dir] < loc;
-					break;
-			}
+			objMeshRenderer.enabled = cutoff switch
+			{
+				Common.CutoffType.Below => objTarget.transform.localPosition[(int) dir] > loc,
+				Common.CutoffType.Above => objTarget.transform.localPosition[(int) dir] < loc,
+				_ => objMeshRenderer.enabled
+			};
 		}
 	}
 }

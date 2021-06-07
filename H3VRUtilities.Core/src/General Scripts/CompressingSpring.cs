@@ -12,9 +12,9 @@ namespace H3VRUtilities
 		public GameObject compressor;
 		public GameObject spring;
 
-		public CullOnZLocation.DirectionType directionOfCompression = CullOnZLocation.DirectionType.Z;
+		public Common.Direction directionOfCompression = Common.Direction.Z;
 
-		public CullOnZLocation.DirectionType directionOfCompressor = CullOnZLocation.DirectionType.Z;
+		public Common.Direction directionOfCompressor = Common.Direction.Z;
 
 		[Tooltip("The directionOfCompression position where the scale will be 1.")]
 		public float fullExtend;

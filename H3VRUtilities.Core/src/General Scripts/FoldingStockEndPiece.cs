@@ -9,11 +9,11 @@ namespace H3VRUtilities
 {
 	public class FoldingStockEndPeice : MonoBehaviour
 	{
-		public CullOnZLocation.DirectionType MainPieceDir;
+		public Common.Direction MainPieceDir;
 		public GameObject MainPiece;
 		public float MainPieceMinRot;
 		public float MainPieceMaxRot;
-		public CullOnZLocation.DirectionType EndPieceDir;
+		public Common.Direction EndPieceDir;
 		public GameObject EndPiece;
 		public float EndPieceMinRot;
 		public float EndPieceMaxRot;

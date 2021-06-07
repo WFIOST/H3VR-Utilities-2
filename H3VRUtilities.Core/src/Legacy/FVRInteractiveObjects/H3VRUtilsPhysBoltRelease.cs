@@ -21,13 +21,15 @@ namespace H3VRUtils
 		[HideInInspector]
 		public int WepType = 0;
 
-		protected override void Awake()
+		public override void Awake()
 		{
 			base.Awake();
 			if (ClosedBoltReceiver != null) WepType = 1;
 		}
 
-		protected override void FVRFixedUpdate()
+		
+		
+		public override void FVRFixedUpdate()
 		{
 			base.FVRFixedUpdate();
 			if (TouchpadDir == H3VRUtilsMagRelease.TouchpadDirType.Up) dir = Vector2.up;
@@ -52,8 +54,7 @@ namespace H3VRUtils
 
 		public void ReleaseBolt(FVRViveHand hand, bool _forceDrop = false)
 		{
-			bool flag2 = false;
-			if (Vector2.Angle(hand.Input.TouchpadAxes, dir) <= 45f && hand.Input.TouchpadDown && hand.Input.TouchpadAxes.magnitude > 0.2f) flag2 = true;
+			var flag2 = Vector2.Angle(hand.Input.TouchpadAxes, dir) <= 45f && hand.Input.TouchpadDown && hand.Input.TouchpadAxes.magnitude > 0.2f;
 
 			if (flag2 || hand.IsInStreamlinedMode && hand.Input.AXButtonPressed)
 			{

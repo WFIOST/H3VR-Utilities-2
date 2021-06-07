@@ -11,7 +11,7 @@ namespace H3VRUtilities
 	{
 		public GameObject leader;
 		public GameObject follower;
-		public CullOnZLocation.DirectionType direction;
+		public Common.Direction direction;
 
 		public Vector3 followerPosition;
 		public Vector3 leaderPosition;

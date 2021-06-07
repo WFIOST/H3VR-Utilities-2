@@ -9,25 +9,17 @@ namespace H3VRUtilities
 {
 	public class ManipulateObject : MonoBehaviour
 	{
-		public enum Transformtype
-		{
-			Position,
-			Rotation,
-			Scale,
-			Quaternion,
-			QuaternionPresentedEuler
-		}
 		[FormerlySerializedAs("ObservedObject")] [Header("Object Being Observed")]
 		public GameObject observedObject;
-		[FormerlySerializedAs("DirectionOfObservation")] public CullOnZLocation.DirectionType directionOfObservation;
-		[FormerlySerializedAs("TransformationTypeOfObservedObject")] public Transformtype transformationTypeOfObservedObject;
+		[FormerlySerializedAs("DirectionOfObservation")] public Common.Direction directionOfObservation;
+		[FormerlySerializedAs("TransformationTypeOfObservedObject")] public Common.TransformType transformationTypeOfObservedObject;
 		[FormerlySerializedAs("StartOfObservation")] public float startOfObservation;
 		[FormerlySerializedAs("StopOfObservation")] public float stopOfObservation;
 
 		[FormerlySerializedAs("AffectedObject")] [Header("Object Being Affected")]
 		public GameObject affectedObject;
-		[FormerlySerializedAs("DirectionOfAffection")] public CullOnZLocation.DirectionType directionOfAffection;
-		[FormerlySerializedAs("TransformationTypeOfAffectedObject")] public Transformtype transformationTypeOfAffectedObject;
+		[FormerlySerializedAs("DirectionOfAffection")] public Common.Direction directionOfAffection;
+		[FormerlySerializedAs("TransformationTypeOfAffectedObject")] public Common.TransformType transformationTypeOfAffectedObject;
 		[FormerlySerializedAs("StartOfAffected")] public float startOfAffected;
 		[FormerlySerializedAs("StopOfAffected")] public float stopOfAffected;
 
@@ -56,11 +48,11 @@ namespace H3VRUtilities
 
 			_observationpoint = transformationTypeOfObservedObject switch
 			{
-				Transformtype.Position					=> observedObject.transform.localPosition[(int) directionOfObservation],
-				Transformtype.Rotation					=> observedObject.transform.localEulerAngles[(int) directionOfObservation],
-				Transformtype.Scale						=> observedObject.transform.localScale[(int) directionOfObservation],
-				Transformtype.Quaternion				=> observedObject.transform.localRotation[(int) directionOfObservation],
-				Transformtype.QuaternionPresentedEuler	=> observedObject.transform.localRotation
+				Common.TransformType.Position					=> observedObject.transform.localPosition[(int) directionOfObservation],
+				Common.TransformType.Rotation					=> observedObject.transform.localEulerAngles[(int) directionOfObservation],
+				Common.TransformType.Scale						=> observedObject.transform.localScale[(int) directionOfObservation],
+				Common.TransformType.Quaternion				=> observedObject.transform.localRotation[(int) directionOfObservation],
+				Common.TransformType.QuaternionPresentedEuler	=> observedObject.transform.localRotation
 					[(int) directionOfObservation] * 180,
 				_ => _observationpoint
 			};
@@ -96,27 +88,27 @@ namespace H3VRUtilities
 
 			switch (transformationTypeOfAffectedObject)
 			{
-				case Transformtype.Position:
+				case Common.TransformType.Position:
 					v3 = affectedObject.transform.localPosition;
 					v3[(int)directionOfAffection] = _lerppoint;
 					affectedObject.transform.localPosition = v3;
 					break;
-				case Transformtype.Rotation:
+				case Common.TransformType.Rotation:
 					v3 = affectedObject.transform.localEulerAngles;
 					v3[(int)directionOfAffection] = _lerppoint;
 					affectedObject.transform.localEulerAngles = v3;
 					break;
-				case Transformtype.Scale:
+				case Common.TransformType.Scale:
 					v3 = affectedObject.transform.localScale;
 					v3[(int)directionOfAffection] = _lerppoint;
 					affectedObject.transform.localScale = v3;
 					break;
-				case Transformtype.Quaternion:
+				case Common.TransformType.Quaternion:
 					var qt = affectedObject.transform.rotation;
 					qt[(int)directionOfAffection] = _lerppoint;
 					affectedObject.transform.localRotation = qt;
 					break;
-				case Transformtype.QuaternionPresentedEuler:
+				case Common.TransformType.QuaternionPresentedEuler:
 					v3 = affectedObject.transform.localEulerAngles;
 					v3[(int)directionOfAffection] = _lerppoint;
 					affectedObject.transform.localEulerAngles = v3;

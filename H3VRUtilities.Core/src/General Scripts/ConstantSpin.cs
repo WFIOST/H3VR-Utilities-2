@@ -11,7 +11,7 @@ namespace H3VRUtilities
 	{
 		public GameObject objectToSpin;
 		public float spinRate;
-		public CullOnZLocation.DirectionType directionOfSpeen;
+		public Common.Direction directionOfSpeen;
 
 		public void FixedUpdate()
 		{
